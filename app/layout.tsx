@@ -5,7 +5,10 @@ import "./globals.css";
 const mono = Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Auth V5 Toolkit",
+  title: {
+    template: "%s | Auth V5 Toolkit",
+    default: "Auth V5 Toolkit",
+  },
   description:
     "A toolkit for building advanced custom authentication into your next.js app",
 };
