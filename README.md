@@ -1,8 +1,10 @@
 # Auth.js V5 Toolkit
 
+A toolkit for building advanced custom authentication into your next.js application.
+
 ## Tech Stack
 
-`TypeScript, React, Next.js, TailwindCSS, Auth.js V5, OAuth, Prisma, PostgreSQL, Shadcn-ui, Bcrypt, React-hook-form, React-icons, React-spinners, Resend, Sonner, Zod`
+`TypeScript, React, Next.js, TailwindCSS, Auth.js V5, OAuth 2, Prisma, PostgreSQL, Shadcn-ui, Bcrypt, React-hook-form, React-icons, React-spinners, Resend, Sonner, Zod`
 
 ## Getting Started
 
