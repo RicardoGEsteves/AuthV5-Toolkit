@@ -1,0 +1,58 @@
+name: Node.js Security Scan Configuration
+description: Scans Node.js projects for potential security issues using CodeQL
+language: typescript
+version: 1.0.2
+
+connection:
+  database:
+    type: hosted
+    # url: https://codeql.codecov.io/
+    # token: <your_codecov_token>
+
+queries:
+  - name: Unused Variables
+    query: |
+      from sources
+      where sources.code.contains("unused")
+      select sources.code.location, sources.code, "Unused variable detected"
+
+  - name: Insecure Dependency Usage
+    query: |
+      from dependencies
+      where dependencies.version < "16.13.1"
+      and dependencies.product = "npm:react-dom"
+      select dependencies.name, dependencies.version, "Insecure react-dom version used"
+
+  - name: NoESLint
+    query: |
+      from sources
+      where not sources.code.contains("eslint")
+      select sources.code.location, sources.code, "Missing ESLint"
+
+  - name: XSS Vulnerabilities
+    query: |
+      from sources
+      where sources.code.matches("(dangerousXSSMethod|unsafePattern)")
+      select sources.code.location, sources.code, "Potential XSS vulnerability"
+
+  - name: Injection Vulnerabilities
+    query: |
+      from sources
+      where sources.code.matches("(dangerousSQLQuery|unvalidatedInput)")
+      select sources.code.location, sources.code, "Possible injection vulnerability"
+
+  - name: Improper Error Handling
+    query: |
+      from controlflow
+      where controlflow.reachesExit() and not controlflow.traversesCatch()
+      select controlflow, "Improper error handling"
+
+languages:
+  - javascript
+  - typescript
+
+environments:
+  - name: Node.js
+    variables:
+      - name: NODE_PATH
+        value: "./node_modules"
