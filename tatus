@@ -1,0 +1,96 @@
+[1mdiff --git a/components/auth/login-form.tsx b/components/auth/login-form.tsx[m
+[1mindex a6f9019..5287cd5 100644[m
+[1m--- a/components/auth/login-form.tsx[m
+[1m+++ b/components/auth/login-form.tsx[m
+[36m@@ -1,16 +1,105 @@[m
+ "use client";[m
+ [m
+[32m+[m[32mimport { useForm } from "react-hook-form";[m
+[32m+[m[32mimport * as z from "zod";[m
+[32m+[m[32mimport { zodResolver } from "@hookform/resolvers/zod";[m
+[32m+[m[32mimport Link from "next/link";[m
+[32m+[m
+[32m+[m[32mimport { LoginSchema } from "@/schemas";[m
+ import CardWrapper from "./card-wrapper";[m
+[32m+[m[32mimport {[m
+[32m+[m[32m  Form,[m
+[32m+[m[32m  FormControl,[m
+[32m+[m[32m  FormField,[m
+[32m+[m[32m  FormItem,[m
+[32m+[m[32m  FormLabel,[m
+[32m+[m[32m  FormMessage,[m
+[32m+[m[32m} from "../ui/form";[m
+[32m+[m[32mimport { Input } from "../ui/input";[m
+[32m+[m[32mimport { Button } from "../ui/button";[m
+[32m+[m[32mimport FormError from "../form-error";[m
+[32m+[m[32mimport FormSuccess from "../form-success";[m
+ [m
+ const LoginForm = () => {[m
+[32m+[m[32m  const form = useForm<z.infer<typeof LoginSchema>>({[m
+[32m+[m[32m    resolver: zodResolver(LoginSchema),[m
+[32m+[m[32m    defaultValues: {[m
+[32m+[m[32m      email: "",[m
+[32m+[m[32m      password: "",[m
+[32m+[m[32m    },[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  const onSubmit = (values: z.infer<typeof LoginSchema>) => {[m
+[32m+[m[32m    console.log(values);[m
+[32m+[m[32m  };[m
+[32m+[m
+   return ([m
+     <CardWrapper[m
+       headerLabel="Welcome back!"[m
+[31m-      backButtonLabel=" Don't have an account?"[m
+[32m+[m[32m      backButtonLabel="Don't have an account?"[m
+       backButtonHref="/auth/register"[m
+       showSocial[m
+     >[m
+[31m-      LoginForm[m
+[32m+[m[32m      <Form {...form}>[m
+[32m+[m[32m        <form[m
+[32m+[m[32m          onSubmit={form.handleSubmit(onSubmit)}[m
+[32m+[m[32m          className="space-y-6"[m
+[32m+[m[32m        >[m
+[32m+[m[32m          <div className="space-y-4">[m
+[32m+[m[32m            <FormField[m
+[32m+[m[32m              control={form.control}[m
+[32m+[m[32m              name="email"[m
+[32m+[m[32m              render={({ field }) => ([m
+[32m+[m[32m                <FormItem>[m
+[32m+[m[32m                  <FormLabel>Email</FormLabel>[m
+[32m+[m[32m                  <FormControl>[m
+[32m+[m[32m                    <Input[m
+[32m+[m[32m                      {...field}[m
+[32m+[m[32m                      type="email"[m
+[32m+[m[32m                      placeholder="your.email@example.com"[m
+[32m+[m[32m                    />[m
+[32m+[m[32m                  </FormControl>[m
+[32m+[m[32m                  <FormMessage />[m
+[32m+[m[32m                </FormItem>[m
+[32m+[m[32m              )}[m
+[32m+[m[32m            />[m
+[32m+[m
+[32m+[m[32m            <FormField[m
+[32m+[m[32m              control={form.control}[m
+[32m+[m[32m              name="password"[m
+[32m+[m[32m              render={({ field }) => ([m
+[32m+[m[32m                <FormItem>[m
+[32m+[m[32m                  <FormLabel>Password</FormLabel>[m
+[32m+[m[32m                  <FormControl>[m
+[32m+[m[32m                    <Input[m
+[32m+[m[32m                      {...field}[m
+[32m+[m[32m                      type="password"[m
+[32m+[m[32m                      placeholder="******"[m
+[32m+[m[32m                    />[m
+[32m+[m[32m                  </FormControl>[m
+[32m+[m[32m                  <FormMessage />[m
+[32m+[m[32m                  <Button[m
+[32m+[m[32m                    size="sm"[m
+[32m+[m[32m                    variant="link"[m
+[32m+[m[32m                    asChild[m
+[32m+[m[32m                    className="px-0 text-muted-foreground"[m
+[32m+[m[32m                  >[m
+[32m+[m[32m                    <Link href="/auth/reset">Forgot your password?</Link>[m
+[32m+[m[32m                  </Button>[m
+[32m+[m[3
