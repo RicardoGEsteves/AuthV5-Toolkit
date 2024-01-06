@@ -1,10 +1,13 @@
 "use client";
 
+import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 
+import { useIsClient } from "@/hooks/use-is-client";
+import Spinner from "../spinner";
 import { LoginSchema } from "@/schemas";
 import CardWrapper from "./card-wrapper";
 import {
@@ -19,8 +22,16 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import FormError from "../form-error";
 import FormSuccess from "../form-success";
+import { login } from "@/actions/login";
 
 const LoginForm = () => {
+  const isClient = useIsClient();
+
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
+
+  const [isPending, startTransition] = useTransition();
+
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -30,8 +41,19 @@ const LoginForm = () => {
   });
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-    console.log(values);
+    startTransition(() => {
+      login(values).then((data) => {
+        if (data.success) setSuccess(data.success);
+        if (data?.error) setError(data.error);
+      });
+    });
+
+    form.reset();
+    setSuccess("");
+    setError("");
   };
+
+  if (!isClient) return <Spinner />;
 
   return (
     <CardWrapper
@@ -55,6 +77,7 @@ const LoginForm = () => {
                   <FormControl>
                     <Input
                       {...field}
+                      disabled={isPending}
                       type="email"
                       placeholder="your.email@example.com"
                     />
@@ -73,6 +96,7 @@ const LoginForm = () => {
                   <FormControl>
                     <Input
                       {...field}
+                      disabled={isPending}
                       type="password"
                       placeholder="******"
                     />
@@ -90,10 +114,11 @@ const LoginForm = () => {
               )}
             />
           </div>
-          <FormError message="" />
-          <FormSuccess message="" />
+          {error && <FormError message={error} />}
+          {success && <FormSuccess message={success} />}
           <Button
             type="submit"
+            disabled={isPending}
             className="w-full hover:bg-sky-400"
           >
             Login
