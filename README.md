@@ -1,21 +1,92 @@
 # Auth.js V5 Toolkit
 
-A toolkit for building advanced custom authentication into your next.js application.
+A comprehensive toolkit template repository tailored to assist in integrating advanced custom authentication into your Next.js applications using Auth.js V5.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Environment Variables](#environment-variables)
+- [Contributions](#contributions)
+- [License](#license)
+
+## Overview
+
+Auth.js V5 Toolkit is a specialized toolkit designed to streamline the process of implementing sophisticated and customizable authentication mechanisms within Next.js applications. It provides a solid foundation and structure to integrate Auth.js V5 seamlessly.
+
+## Key Features
+
+- **Next.js & React:** Utilize Next.js and React for efficient server-side rendering and interactive UI.
+- **TypeScript:** Ensure type safety and enhance code quality with TypeScript.
+- **TailwindCSS:** Employ a utility-first CSS framework for rapid UI development and customization.
+- **Auth.js V5 & OAuth 2:** Implement advanced authentication features using Auth.js V5 and OAuth 2 for secure authentication flows.
+- **Prisma & PostgreSQL:** Leverage Prisma ORM with PostgreSQL for efficient database management and queries.
+- **Shadcn-ui:** Utilize UI components from Shadcn-ui for visually appealing interfaces.
+- **Bcrypt:** Implement secure password hashing using Bcrypt for enhanced security.
+- **React-hook-form & React-icons:** Manage forms efficiently and use icons for a better user experience.
+- **React-spinners:** Integrate loading spinners for a smoother user interaction.
+- **Resend & Sonner:** Manage asynchronous tasks and scheduling effectively.
+- **Zod:** Ensure data validation with Zod's schema-first approach.
 
 ## Tech Stack
 
-`TypeScript, React, Next.js, TailwindCSS, Auth.js V5, OAuth 2, Prisma, PostgreSQL, Shadcn-ui, Bcrypt, React-hook-form, React-icons, React-spinners, Resend, Sonner, Zod`
+- TypeScript
+- React
+- Next.js
+- TailwindCSS
+- Auth.js V5
+- OAuth 2
+- Prisma
+- PostgreSQL
+- Shadcn-ui
+- Bcrypt
+- React-hook-form
+- React-icons
+- React-spinners
+- Resend
+- Sonner
+- Zod
 
-## Getting Started
+## Installation
 
-First, run the development server:
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Install dependencies using `npm install`.
+4. Configure the environment variables required for Auth.js V5 and Prisma setup.
+5. Start the application with `npm run dev`.
+
+## Usage
+
+1. Access the application via the provided URL.
+2. Implement advanced custom authentication into your Next.js application using the toolkit's structured approach.
+3. Leverage the provided features and libraries to enhance your authentication mechanisms.
+
+## Environment Variables
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+DATABASE_URL=
+DIRECT_URL=
+
+AUTH_SECRET=
+
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+RESEND_API_KEY=
+
+NEXT_PUBLIC_APP_URL=
 ```
+
+## Contributions
+
+Contributions are encouraged! Please adhere to the guidelines specified in the CONTRIBUTING.md file for contributing to this project.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
