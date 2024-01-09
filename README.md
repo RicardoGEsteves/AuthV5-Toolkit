@@ -30,6 +30,13 @@ Auth.js V5 Toolkit is a specialized toolkit designed to streamline the process o
 - **React-spinners:** Integrate loading spinners for a smoother user interaction.
 - **Resend & Sonner:** Manage asynchronous tasks and scheduling effectively.
 - **Zod:** Ensure data validation with Zod's schema-first approach.
+- **Server Actions:** Implement server actions for authentication flows and providers.
+
+- **Authentication Flows:** Implement authentication flows for sign up, sign in, sign out, forgot password, and reset password.
+- **Authentication Providers:** Integrate authentication with credentials, OAuth 2, Google and Github providers, and refresh tokens.
+- **Authentication Callbacks:** For JSON Web Tokens as they allow you to implement access controls without a database and to integrate with external databases or APIs.
+- **Authentication Events:** Asynchronous functions that do not return a response, to handling any other side-effects.
+- **Authentication Pages:** For handling Sign in, Sign out, Email Verification and displaying error messages.
 
 ## Tech Stack
 
