@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,12 +26,19 @@ import FormSuccess from "../form-success";
 import { login } from "@/actions/login";
 
 const LoginForm = () => {
-  const isClient = useIsClient();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl");
+  const urlError =
+    searchParams.get("error") === "OAuthAccountNotLinked"
+      ? "Email already in use with a different provider!"
+      : "";
 
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
 
   const [isPending, startTransition] = useTransition();
+
+  const isClient = useIsClient();
 
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
@@ -43,7 +51,8 @@ const LoginForm = () => {
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
     startTransition(() => {
       login(values).then((data) => {
-        if (data.success) setSuccess(data.success);
+        // TODO: Add when 2FA is implemented
+        // if (data?.success) setSuccess(data?.success);
         if (data?.error) setError(data.error);
       });
     });
@@ -114,7 +123,7 @@ const LoginForm = () => {
               )}
             />
           </div>
-          {error && <FormError message={error} />}
+          {error && <FormError message={error || urlError} />}
           {success && <FormSuccess message={success} />}
           <Button
             type="submit"

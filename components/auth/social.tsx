@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-// import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { GrGoogle } from "react-icons/gr";
 import { FaGithub } from "react-icons/fa";
 
@@ -12,7 +12,7 @@ const Social = () => {
   const callbackUrl = searchParams.get("callbackUrl");
 
   const onClick = (provider: "google" | "github") => {
-    // signIn(provider, { callbackUrl: callbackUrl || "" });
+    signIn(provider, { callbackUrl: callbackUrl || "" });
   };
 
   return (
