@@ -51,8 +51,7 @@ const LoginForm = () => {
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
     startTransition(() => {
       login(values).then((data) => {
-        // TODO: Add when 2FA is implemented
-        // if (data?.success) setSuccess(data?.success);
+        if (data?.success) setSuccess(data.success);
         if (data?.error) setError(data.error);
       });
     });
