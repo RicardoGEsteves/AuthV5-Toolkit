@@ -25,9 +25,8 @@ Auth.js V5 Toolkit is a specialized toolkit designed to streamline the process o
 - **Auth.js V5 & OAuth 2:** Implement advanced authentication features using Auth.js V5 and OAuth 2 for secure authentication flows.
 - **Prisma & PostgreSQL:** Leverage Prisma ORM with PostgreSQL for efficient database management and queries.
 - **Shadcn-ui:** Utilize UI components from Shadcn-ui for visually appealing interfaces.
-- **Bcrypt:** Implement secure password hashing using Bcrypt for enhanced security.
+- **Bcryptjs:** Implement secure password hashing using Bcrypt for enhanced security.
 - **React-hook-form & React-icons:** Manage forms efficiently and use icons for a better user experience.
-- **React-spinners:** Integrate loading spinners for a smoother user interaction.
 - **Resend & Sonner:** Manage asynchronous tasks and scheduling effectively.
 - **Zod:** Ensure data validation with Zod's schema-first approach.
 - **Server Actions:** Implement server actions for authentication flows and providers.
@@ -49,10 +48,9 @@ Auth.js V5 Toolkit is a specialized toolkit designed to streamline the process o
 - Prisma
 - PostgreSQL
 - Shadcn-ui
-- Bcrypt
+- Bcryptjs
 - React-hook-form
 - React-icons
-- React-spinners
 - Resend
 - Sonner
 - Zod
@@ -92,7 +90,7 @@ NEXT_PUBLIC_APP_URL=
 
 ## Contributions
 
-Contributions are encouraged! Please adhere to the guidelines specified in the CONTRIBUTING.md file for contributing to this project.
+Contributions are encouraged! Get in touch to contributing to this project.
 
 ## License
 
