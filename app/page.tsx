@@ -14,7 +14,9 @@ export default function Home() {
           </h1>
         </div>
 
-        <p className="text-primary text-lg">Simple authentication service</p>
+        <p className="text-primary text-lg">
+          Welcome to authentication service.
+        </p>
 
         <div>
           <LoginButton>
@@ -22,6 +24,7 @@ export default function Home() {
               className="bg-gradient-to-r from-sky-400 to-sky-500 text-primary hover:bg-gradient-to-l hover:from-sky-400 hover:to-sky-500"
               size="lg"
             >
+              {/* TODO: Check if i keep it like sign in or change it to login */}
               Sign in
             </Button>
           </LoginButton>
