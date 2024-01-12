@@ -15,7 +15,7 @@ const LoginButton = ({
 }: LoginButtonProps) => {
   const router = useRouter();
 
-  const onClick = () => {
+  const handleLogin = () => {
     router.push("/auth/login");
   };
 
@@ -26,7 +26,7 @@ const LoginButton = ({
 
   return (
     <span
-      onClick={onClick}
+      onClick={handleLogin}
       className="cursor-pointer"
     >
       {children}
