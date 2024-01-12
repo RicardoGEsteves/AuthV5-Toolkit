@@ -12,6 +12,7 @@ export default function SettingsPage() {
 
   return (
     <div>
+      {JSON.stringify(user)}
       <button
         onClick={handleLogout}
         type="submit"
