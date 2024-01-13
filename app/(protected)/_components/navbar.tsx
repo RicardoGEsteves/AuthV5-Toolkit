@@ -11,7 +11,8 @@ const Navbar = () => {
   const pathName = usePathname();
 
   return (
-    <nav className="bg-secondary flex justify-between items-center p-4 rounded-xl w-[600px]">
+    // TODO: Mobile navbar
+    <nav className="w-full fixed bg-secondary flex justify-between items-center p-4">
       <div className="flex gap-x-2">
         {NAV_LINKS.map((link, index) => (
           <Button

@@ -17,7 +17,7 @@ const UserInfo = ({ user, label }: UserInfoProps) => {
   };
 
   return (
-    <Card className="w-[600px]">
+    <Card className="w-auto">
       <CardHeader>
         <p className="text-2xl font-semibold text-center">{label}</p>
       </CardHeader>
@@ -29,7 +29,10 @@ const UserInfo = ({ user, label }: UserInfoProps) => {
           >
             <p className="text-sm font-medium">{key}</p>
             {key === "Two Factor Authentication" ? (
-              <Badge variant={value ? "success" : "destructive"}>
+              <Badge
+                variant={value ? "success" : "destructive"}
+                className="ml-4"
+              >
                 {value ? "Enabled" : "Disabled"}
               </Badge>
             ) : (

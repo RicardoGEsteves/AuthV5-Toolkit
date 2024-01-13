@@ -12,9 +12,11 @@ export default async function ProtectedLayout({
 
   return (
     <SessionProvider session={session}>
-      <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center">
+      <div className="h-full w-full flex">
         <Navbar />
-        {children}
+        <div className="w-full flex items-center justify-center mx-5">
+          {children}
+        </div>
       </div>
     </SessionProvider>
   );
