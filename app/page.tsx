@@ -19,12 +19,17 @@ export default function Home() {
         </p>
 
         <div>
+          {/* Other option is to use the <LoginButton mode="modal" asChild /> component with that props,
+          as a modal instead of redirecting to the login page.
+          - You can do the same for Register, but in that case i would recommend to create a separate component for it.
+          Like a new Login and register form component and a register button component.
+          Or refactor the login form or card-wrapper.
+          */}
           <LoginButton>
             <Button
               className="bg-gradient-to-r from-sky-400 to-sky-500 text-primary hover:bg-gradient-to-l hover:from-sky-400 hover:to-sky-500"
               size="lg"
             >
-              {/* TODO: Check if i keep it like sign in or change it to login */}
               Sign in
             </Button>
           </LoginButton>
