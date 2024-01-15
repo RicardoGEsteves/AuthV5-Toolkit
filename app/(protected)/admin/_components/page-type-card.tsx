@@ -8,7 +8,7 @@ type PageTypeCardProps = {
 
 const PageTypeCard = ({ title, role }: PageTypeCardProps) => {
   return (
-    <Card className="w-auto">
+    <Card className="w-auto shadow-sm">
       <CardHeader>
         <p className="text-2xl font-semibold text-center">{title}</p>
       </CardHeader>
