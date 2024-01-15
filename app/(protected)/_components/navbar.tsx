@@ -37,7 +37,7 @@ const Navbar = () => {
               asChild
               variant="secondary"
               size="sm"
-              className="w-full text-background hover:text-sky-400"
+              className="w-full text-sky-400 hover:text-background"
             >
               <MdMenu />
             </Button>
