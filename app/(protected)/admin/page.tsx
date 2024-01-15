@@ -42,7 +42,7 @@ export default function AdminPage() {
   };
 
   return (
-    <Card className="w-auto">
+    <Card className="w-auto shadow-sm">
       <CardHeader className="flex-row items-center justify-center gap-x-4">
         <span>
           <MdOutlineAdminPanelSettings className="h-10 w-10 text-sky-400" />

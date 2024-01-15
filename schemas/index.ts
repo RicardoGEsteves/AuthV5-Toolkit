@@ -32,9 +32,19 @@ export const SettingsSchema = z
     isTwoFactorEnabled: z.optional(z.boolean()),
     role: z.enum([UserRole.ADMIN, UserRole.USER]),
     email: z.optional(z.string().email()),
-    password: z.optional(z.string().min(6)),
-    newPassword: z.optional(z.string().min(6)),
-    newPasswordConfirmation: z.optional(z.string().min(6)),
+    password: z.optional(z.string().min(1)),
+    newPassword: z.optional(
+      z.string().min(6, {
+        message:
+          "Please enter a new password with at least 6 characters, required",
+      })
+    ),
+    newPasswordConfirmation: z.optional(
+      z.string().min(6, {
+        message:
+          "Please confirm your password with at least 6 characters, required",
+      })
+    ),
   })
   .refine((data) => passwordRequired(data, "password", "newPassword"), {
     message:
@@ -42,10 +52,10 @@ export const SettingsSchema = z
     path: ["newPassword"],
   })
   .refine((data) => passwordRequired(data, "newPassword", "password"), {
-    message: "Please enter your password is required!",
+    message: "Please enter your valid password, required!",
     path: ["password"],
   })
-  .refine((data) => data.password === data.newPasswordConfirmation, {
+  .refine((data) => data.newPassword === data.newPasswordConfirmation, {
     message: "Passwords do not match.",
     path: ["newPasswordConfirmation"],
   });
@@ -53,7 +63,7 @@ export const SettingsSchema = z
 export const NewPasswordSchema = z
   .object({
     password: z.string().min(6, {
-      message: "Please enter a password with at least 6 characters, required",
+      message: "Please enter your password, required",
     }),
     passwordConfirmation: z.string().min(6, {
       message: "Please confirm your password, required.",

@@ -82,7 +82,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <Card className="w-auto">
+    <Card className="w-auto shadow-sm">
       <CardHeader className="flex-row items-center justify-center font-semibold gap-x-3">
         <RiUserSettingsLine className="text-sky-400 text-3xl" />
 
@@ -104,8 +104,9 @@ export default function SettingsPage() {
                     <FormControl>
                       <Input
                         {...field}
-                        placeholder="John Doe"
+                        placeholder="Your Name"
                         disabled={isPending}
+                        type="text"
                       />
                     </FormControl>
                     <FormMessage />
@@ -123,7 +124,7 @@ export default function SettingsPage() {
                         <FormControl>
                           <Input
                             {...field}
-                            placeholder="john.doe@example.com"
+                            placeholder="your.email@example.com"
                             type="email"
                             disabled={isPending}
                           />
@@ -132,6 +133,7 @@ export default function SettingsPage() {
                       </FormItem>
                     )}
                   />
+
                   <FormField
                     control={form.control}
                     name="password"
@@ -139,17 +141,19 @@ export default function SettingsPage() {
                       <FormItem>
                         <FormLabel>Password</FormLabel>
                         <FormControl>
-                          <Input
+                          <PasswordInput
                             {...field}
                             placeholder="******"
                             type="password"
                             disabled={isPending}
+                            value={field.value !== undefined ? field.value : ""}
                           />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
                   <FormField
                     control={form.control}
                     name="newPassword"
@@ -157,11 +161,32 @@ export default function SettingsPage() {
                       <FormItem>
                         <FormLabel>New Password</FormLabel>
                         <FormControl>
-                          <Input
+                          <PasswordInput
                             {...field}
                             placeholder="******"
                             type="password"
                             disabled={isPending}
+                            value={field.value !== undefined ? field.value : ""}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="newPasswordConfirmation"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>New Password Confirmation</FormLabel>
+                        <FormControl>
+                          <PasswordInput
+                            {...field}
+                            placeholder="******"
+                            type="password"
+                            disabled={isPending}
+                            value={field.value !== undefined ? field.value : ""}
                           />
                         </FormControl>
                         <FormMessage />
@@ -200,11 +225,11 @@ export default function SettingsPage() {
                   control={form.control}
                   name="isTwoFactorEnabled"
                   render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm gap-x-2">
                       <div className="space-y-0.5">
                         <FormLabel>Two Factor Authentication</FormLabel>
                         <FormDescription>
-                          Enable two factor authentication for your account
+                          Enable two factor authentication for your account.
                         </FormDescription>
                       </div>
                       <FormControl>
