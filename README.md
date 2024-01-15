@@ -1,10 +1,11 @@
 # Auth.js V5 Toolkit
 
-A comprehensive toolkit template repository tailored to assist in integrating advanced custom authentication into your Next.js applications using Auth.js V5.
+A comprehensive toolkit template repository tailored to assist in integrating advanced custom authentication into your Next.js applications using Auth.js V5. It demonstrates both client-side and server-side aspects and approaches.
 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Concept](#concept)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
@@ -15,7 +16,28 @@ A comprehensive toolkit template repository tailored to assist in integrating ad
 
 ## Overview
 
-Auth.js V5 Toolkit is a specialized toolkit designed to streamline the process of implementing sophisticated and customizable authentication mechanisms within Next.js applications. It provides a solid foundation and structure to integrate Auth.js V5 seamlessly.
+Auth.js V5 Toolkit is a specialized toolkit designed to streamline the process of implementing sophisticated and customizable authentication mechanisms within Next.js applications. It provides a solid foundation and structure to integrate Auth.js V5 seamlessly. It's designed to provide a robust and scalable solution for managing user authentication in web applications.
+
+## Concept
+
+The concept behind this toolkit is to create a scalable and maintainable solution for managing user authentication. It's designed with a modular approach, where each feature is encapsulated in its own module, making it easy to add, remove, or modify features.
+
+> **Client-Side Implementation**
+> The client-side implementation includes client components and API calls. These components are responsible for rendering the user interface and interacting with the user. The API calls are used to communicate with the server, sending requests and receiving responses.
+
+> **Server-Side Implementation**
+> The server-side implementation includes server actions and server components. Server actions handle the business logic, such as user registration, login, and authentication. Server components are responsible for rendering server-side views.
+
+> **Parallel Routes**
+> The toolkit uses parallel routes to demonstrate a client and a server component rendering the same information with different approaches. This showcases the flexibility and versatility of the toolkit in handling different rendering strategies.
+
+> **User Registration and Login**
+> The toolkit provides users with the ability to register and login with credentials or providers like Google and GitHub. This makes it easy for users to start using the application with their existing accounts.
+
+> **Two-Factor Authentication and Email Confirmation**
+> The toolkit includes two-factor authentication for added security. This requires users to provide two forms of identification when logging in, such as a password and a verification code sent to their phone.
+
+> In addition, the toolkit includes **email confirmation and validation**. After registering, users receive an email with a link to confirm their account. This helps to verify that the email address provided by the user is valid and belongs to them.
 
 ## Key Features
 
