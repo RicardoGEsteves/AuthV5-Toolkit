@@ -8,6 +8,8 @@ import { useSession } from "next-auth/react";
 import { RiUserSettingsLine } from "react-icons/ri";
 
 import { useCurrentUser } from "@/hooks/use-current-user";
+import { useIsClient } from "@/hooks/use-is-client";
+import Spinner from "@/components/spinner";
 import { SettingsSchema } from "@/schemas";
 import { settings } from "@/actions/settings";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
@@ -45,6 +47,8 @@ export default function SettingsPage() {
 
   const [isPending, startTransition] = useTransition();
 
+  const isClient = useIsClient();
+
   const form = useForm<z.infer<typeof SettingsSchema>>({
     resolver: zodResolver(SettingsSchema),
     defaultValues: {
@@ -75,11 +79,14 @@ export default function SettingsPage() {
     } catch (error) {
       setError("Something went wrong!");
     } finally {
-      form.reset();
-      setError("");
-      setSuccess("");
+      // TODO: Check if needed
+      // form.reset();
+      // setError("");
+      // setSuccess("");
     }
   };
+
+  if (!isClient) return <Spinner />;
 
   return (
     <Card className="w-auto shadow-sm">
@@ -113,6 +120,7 @@ export default function SettingsPage() {
                   </FormItem>
                 )}
               />
+
               {user?.isOAuth === false && (
                 <>
                   <FormField
@@ -195,6 +203,7 @@ export default function SettingsPage() {
                   />
                 </>
               )}
+
               <FormField
                 control={form.control}
                 name="role"
@@ -220,6 +229,7 @@ export default function SettingsPage() {
                   </FormItem>
                 )}
               />
+
               {user?.isOAuth === false && (
                 <FormField
                   control={form.control}
@@ -234,11 +244,13 @@ export default function SettingsPage() {
                       </div>
                       <FormControl>
                         <Switch
+                          value={field.name}
                           disabled={isPending}
                           checked={field.value}
                           onCheckedChange={field.onChange}
                         />
                       </FormControl>
+                      <FormMessage />
                     </FormItem>
                   )}
                 />
