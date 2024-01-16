@@ -100,7 +100,7 @@ The concept behind this toolkit is to create a scalable and maintainable solutio
   ![Client](/public/demo-images/client.png)
 - Client Page Example with 2FA Enabled
   ![Client](/public/demo-images/2faEnabled.png)
-- Server Page Example with 2FA Enabled
+- Server Page Example with 2FA Disabled
   ![Server](/public/demo-images/server.png)
 - Mobile Navigation
   ![Mobile Navigation](/public/demo-images/mobileNavigation.png)
