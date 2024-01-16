@@ -47,7 +47,7 @@ export default function AdminPage() {
         <span>
           <MdOutlineAdminPanelSettings className="h-10 w-10 text-sky-400" />
         </span>
-        <p className="text-2xl font-semibold text-center">Admin</p>
+        <p className="text-2xl font-semibold text-center">Admin Page Example</p>
       </CardHeader>
       <CardContent className="space-y-4">
         <RoleGate allowedRole={UserRole.ADMIN}>

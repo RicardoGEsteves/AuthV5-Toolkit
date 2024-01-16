@@ -9,7 +9,7 @@ export default function AdminPage() {
   return (
     <div>
       <PageTypeCard
-        title="Admin Client Page"
+        title="Admin Client Page from Parallel Route"
         role={role}
       />
     </div>

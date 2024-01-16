@@ -1,5 +1,9 @@
 import { Toaster } from "@/components/ui/sonner";
 
+export const metadata = {
+  title: "Admin",
+};
+
 export default function AdminLayout(props: {
   children: React.ReactNode;
   client: React.ReactNode;
@@ -12,7 +16,7 @@ export default function AdminLayout(props: {
         closeButton
       />
       {props.children}
-      <div className="flex justify-around mt-6">
+      <div className="flex justify-around mt-6 gap-x-4">
         {props.client}
         {props.server}
       </div>
