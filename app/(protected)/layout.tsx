@@ -3,6 +3,10 @@ import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import Navbar from "./_components/navbar";
 
+export const metadata = {
+  title: "Protected Routes",
+};
+
 export default async function ProtectedLayout({
   children,
 }: {

@@ -79,10 +79,8 @@ export default function SettingsPage() {
     } catch (error) {
       setError("Something went wrong!");
     } finally {
-      // TODO: Check if needed
-      // form.reset();
-      // setError("");
-      // setSuccess("");
+      setError("");
+      setSuccess("");
     }
   };
 
@@ -93,7 +91,7 @@ export default function SettingsPage() {
       <CardHeader className="flex-row items-center justify-center font-semibold gap-x-3">
         <RiUserSettingsLine className="text-sky-400 text-3xl" />
 
-        <p className="text-2xl">Settings</p>
+        <p className="text-2xl">Settings Page Example</p>
       </CardHeader>
       <CardContent>
         <Form {...form}>

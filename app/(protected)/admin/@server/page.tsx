@@ -7,7 +7,7 @@ export default async function AdminPage() {
   return (
     <div>
       <PageTypeCard
-        title="Admin Server Page"
+        title="Admin Server Page from Parallel Route"
         role={role}
       />
     </div>
