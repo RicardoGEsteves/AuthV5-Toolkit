@@ -8,6 +8,7 @@ A comprehensive toolkit template repository tailored to assist in integrating ad
 - [Concept](#concept)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
+- [Demo Images](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Environment Variables](#environment-variables)
@@ -76,6 +77,37 @@ The concept behind this toolkit is to create a scalable and maintainable solutio
 - Resend
 - Sonner
 - Zod
+
+## Demo Images
+
+- Home Page
+  ![Home Page](/public/demo-images/home.png)
+- Login Page
+  ![Login](/public/demo-images/login.png)
+- Register Page
+  ![Register](/public/demo-images/register.png)
+- Settings Page Example
+  ![Settings](/public/demo-images/settings.png)
+- Settings Page Example Enable Two-Factor Authentication
+  ![Settings](/public/demo-images/2FA.png)
+- Admin Page Example, Authorized with two Parallel Routes
+  ![Admin](/public/demo-images/adminAuthorized.png)
+- Admin Page Example, Unauthorized with two Parallel Routes
+  ![Admin](/public/demo-images/adminNotAuthorized.png)
+- Parallel Routes
+  ![Parallel Routes](/public/demo-images/parallelRoutes.png)
+- Client Page Example with 2FA Disabled
+  ![Client](/public/demo-images/client.png)
+- Client Page Example with 2FA Enabled
+  ![Client](/public/demo-images/2faEnabled.png)
+- Server Page Example with 2FA Enabled
+  ![Server](/public/demo-images/server.png)
+- Mobile Navigation
+  ![Mobile Navigation](/public/demo-images/mobileNavigation.png)
+- Logout Dropdown
+  ![Logout](/public/demo-images/logout.png)
+- LoggedIn with Providers
+  ![Logout](/public/demo-images/loggedInWithProviders.png)
 
 ## Installation
 
