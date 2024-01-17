@@ -3,14 +3,13 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "sunday"
-      time: "16:00"
+      interval: "daily"
     open-pull-requests-limit: 30
+    ignore:
+      - dependency-name: "pnpm"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "sunday"
-      time: "16:00"
+      interval: "daily"
     open-pull-requests-limit: 30
