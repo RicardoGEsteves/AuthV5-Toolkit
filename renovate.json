@@ -1,6 +1,55 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
-  ]
+    "config:recommended",
+    ":rebaseStalePrs",
+    ":enableVulnerabilityAlertsWithLabel('security')",
+    "group:recommended"
+  ],
+  "prHeader": "chore(deps): RicardoGEsteves update dependency {{depName}} to v{{newVersion}}",
+  "assignees": ["RicardoGEsteves"],
+  "labels": ["dependencies"],
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps",
+  "prCreation": "immediate",
+  "packageRules": [
+    {
+      "matchPackageNames": ["pnpm"],
+      "enabled": false
+    },
+    {
+      "description": "Automatically merge minor and patch-level updates",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-non-major",
+      "matchPackagePatterns": ["*"]
+    },
+    {
+      "description": "dependencies major updates",
+      "matchUpdateTypes": ["major"],
+      "matchPackagePatterns": ["*"],
+      "dependencyDashboardApproval": true
+    }
+  ],
+  "group": {
+    "branchTopic": "{{{groupSlug}}}",
+    "commitMessageTopic": "{{{groupName}}}"
+  },
+  "major": {
+    "automerge": false
+  },
+  "patch": {
+    "automerge": true
+  },
+  "minor": {
+    "automerge": true
+  },
+  "digest": {
+    "automerge": true
+  },
+  "automergeType": "pr-comment",
+  "automergeComment": "bors: r+",
+  "automergeStrategy": "squash"
 }
