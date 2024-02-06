@@ -7,7 +7,7 @@
     "group:recommended"
   ],
   "prHeader": "chore(deps): RicardoGEsteves update dependency {{depName}} to v{{newVersion}}",
-  "assignees": ["RicardoGEsteves"],
+  "assignees": ["RicardoGEsteves", "Ricardo Esteves"],
   "labels": ["dependencies"],
   "semanticCommits": "enabled",
   "semanticCommitType": "chore",
@@ -21,16 +21,28 @@
     {
       "description": "Automatically merge minor and patch-level updates",
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "autoApprove": true,
       "automerge": true,
+      "automergeType": "pr",
+      "automergeStrategy": "squash",
+      "platformAutomerge": true,
+      "assignAutomerge": true,
       "groupName": "all non-major dependencies",
       "groupSlug": "all-non-major",
-      "matchPackagePatterns": ["*"]
+      "matchPackagePatterns": ["*"],
+      "addLabels": [
+        "automerge",
+        "automerge-minor",
+        "automerge-patch",
+        "automerge-digest"
+      ]
     },
     {
-      "description": "dependencies major updates",
+      "description": "Dependencies major updates",
       "matchUpdateTypes": ["major"],
       "matchPackagePatterns": ["*"],
-      "dependencyDashboardApproval": true
+      "dependencyDashboardApproval": true,
+      "addLabels": ["major", "major-update"]
     }
   ],
   "group": {
@@ -48,8 +60,5 @@
   },
   "digest": {
     "automerge": true
-  },
-  "automergeType": "pr-comment",
-  "automergeComment": "bors: r+",
-  "automergeStrategy": "squash"
+  }
 }
