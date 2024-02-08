@@ -6,7 +6,7 @@
     ":enableVulnerabilityAlertsWithLabel('security')",
     "group:recommended"
   ],
-  "prHeader": "chore(deps): RicardoGEsteves update dependency {{depName}} to v{{newVersion}}",
+  "prHeader": "RicardoGEsteves {{{groupSlug}}} update, dependency {{depName}} to v{{newVersion}}",
   "assignees": ["RicardoGEsteves", "Ricardo Esteves"],
   "labels": ["dependencies"],
   "semanticCommits": "enabled",
@@ -31,10 +31,9 @@
       "groupSlug": "all-non-major",
       "matchPackagePatterns": ["*"],
       "addLabels": [
-        "automerge",
-        "automerge-minor",
-        "automerge-patch",
-        "automerge-digest"
+        "{{{matchUpdateTypes}}}",
+        "{{{groupSlug}}}",
+        "{{{depName}}}-update-{{{newVersion}}}"
       ]
     },
     {
@@ -42,7 +41,11 @@
       "matchUpdateTypes": ["major"],
       "matchPackagePatterns": ["*"],
       "dependencyDashboardApproval": true,
-      "addLabels": ["major", "major-update"]
+      "addLabels": [
+        "{{{matchUpdateTypes}}}",
+        "{{{groupSlug}}}",
+        "{{{depName}}}-update-{{{newVersion}}}"
+      ]
     }
   ],
   "group": {
