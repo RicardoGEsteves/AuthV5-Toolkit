@@ -5,12 +5,12 @@ updates:
     schedule:
       interval: "weekly"
       day: "sunday"
+      time: "16:00"
     open-pull-requests-limit: 30
-    ignore:
-      - dependency-name: "pnpm"
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "sunday"
+      time: "16:00"
     open-pull-requests-limit: 30
