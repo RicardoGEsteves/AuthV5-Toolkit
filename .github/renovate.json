@@ -1,17 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
+    "config:best-practices",
     ":rebaseStalePrs",
     ":enableVulnerabilityAlertsWithLabel('security')",
     "group:recommended",
-    "helpers:pinGitHubActionDigests",
-    ":pinAllExceptPeerDependencies",
     "group:monorepos",
     "replacements:all",
     "workarounds:all",
-    ":semanticPrefixFixDepsChoreOthers"
+    ":semanticPrefixFixDepsChoreOthers",
+    ":separateMultipleMajorReleases"
   ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "automerge": true,
+    "assignees": ["@RicardoGEsteves"]
+  },
   "digest": {
     "prBodyDefinitions": {
       "Change": "{{#if displayFrom}}`{{{displayFrom}}}` -> {{else}}{{#if currentValue}}`{{{currentValue}}}` -> {{/if}}{{/if}}{{#if displayTo}}`{{{displayTo}}}`{{else}}`{{{newValue}}}`{{/if}}"
@@ -21,15 +25,16 @@
   "prBodyDefinitions": {
     "Change": "[{{#if displayFrom}}`{{{displayFrom}}}` -> {{else}}{{#if currentValue}}`{{{currentValue}}}` -> {{/if}}{{/if}}{{#if displayTo}}`{{{displayTo}}}`{{else}}`{{{newValue}}}`{{/if}}]({{#if depName}}https://renovatebot.com/diffs/npm/{{replace '/' '%2f' depName}}/{{{currentVersion}}}/{{{newVersion}}}{{/if}})"
   },
-  "platform": "github",
   "prHeader": "RicardoGEsteves {{{groupSlug}}} update, dependency {{depName}} to v{{newVersion}}",
   "assignees": ["RicardoGEsteves"],
-  "labels": ["dependencies", "major", "minor", "patch"],
+  "labels": ["dependencies", "major", "minor", "patch", "{{depName}}"],
   "schedule": ["every weekend"],
   "npm": {
     "minimumReleaseAge": "3 days"
   },
   "prCreation": "status-success",
+  "configMigration": true,
+  "platformCommit": true,
   "packageRules": [
     {
       "matchSourceUrlPrefixes": ["https://github.com/"],
@@ -50,9 +55,20 @@
       ]
     },
     {
-      "description": "Group dependencies from package.json files",
-      "matchFileNames": ["**/package.json"],
-      "groupName": "All package.json changes"
+      "matchPackageNames": ["node"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["npm"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["pnpm"],
+      "enabled": false
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "enabled": false
     },
     {
       "description": "Automatically merge minor and patch-level updates",
