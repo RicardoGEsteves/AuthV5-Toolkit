@@ -14,7 +14,8 @@
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "automerge": true,
-    "assignees": ["@RicardoGEsteves"]
+    "assignees": ["@RicardoGEsteves"],
+    "prCreation": "immediate"
   },
   "digest": {
     "prBodyDefinitions": {
@@ -29,10 +30,7 @@
   "assignees": ["RicardoGEsteves"],
   "labels": ["dependencies", "major", "minor", "patch", "{{depName}}"],
   "schedule": ["every weekend"],
-  "npm": {
-    "minimumReleaseAge": "3 days"
-  },
-  "prCreation": "status-success",
+  "prCreation": "not-pending",
   "configMigration": true,
   "platformCommit": true,
   "packageRules": [
