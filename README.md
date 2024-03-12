@@ -1,5 +1,7 @@
 # Auth.js V5 Toolkit
 
+> **(UPDATE)** - with the latest dependencies updates, you will have to do some small config changes.
+
 A comprehensive toolkit template repository tailored to assist in integrating advanced custom authentication into your Next.js applications using Auth.js V5. It demonstrates both client-side and server-side aspects and approaches.
 
 ## Table of Contents
