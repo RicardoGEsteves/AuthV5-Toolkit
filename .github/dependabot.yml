@@ -12,22 +12,11 @@ updates:
     assignees:
       - "RicardoGEsteves"
     groups:
-      npm-dependencies:
-        patterns:
-          - "@npmcli/arborist"
-          - "nock"
-          - "npm"
-          - "semver"
-      pnpm-dependencies:
-        patterns:
-          - "@pnpm/lockfile-file"
-          - "@pnpm/dependency-path"
-      dev-dependencies:
-        dependency-type: "development"
-      update-types:
-      - "minor"
-      - "patch"
-  
+      all-dependencies:
+        patterns: [ "*" ]   
+        update-types:
+        - "minor"
+        - "patch"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
