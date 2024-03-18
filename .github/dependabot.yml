@@ -13,10 +13,13 @@ updates:
       - "RicardoGEsteves"
     groups:
       all-dependencies:
-        patterns: [ "*" ]   
+        applies-to: version-updates
+        patterns:
+          - "*"
         update-types:
-        - "minor"
-        - "patch"
+          - "minor"
+          - "patch"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
