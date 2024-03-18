@@ -7,10 +7,26 @@ updates:
       day: "sunday"
       time: "16:00"
     open-pull-requests-limit: 30
+    reviewers:
+      - "RicardoGEsteves"
+    assignees:
+      - "RicardoGEsteves"
+    groups:
+      all-dependencies:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "sunday"
       time: "16:00"
+    groups:
+      all-actions:
+        patterns: [ "*" ]
     open-pull-requests-limit: 30
