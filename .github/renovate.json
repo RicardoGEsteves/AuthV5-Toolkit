@@ -11,6 +11,7 @@
     ":semanticPrefixFixDepsChoreOthers",
     ":separateMultipleMajorReleases"
   ],
+  "branchStatusCheck": true,
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "automerge": true,
