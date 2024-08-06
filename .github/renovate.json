@@ -12,9 +12,13 @@
     ":separateMultipleMajorReleases"
   ],
   "vulnerabilityAlerts": {
-    "labels": ["security"],
+    "labels": [
+      "security"
+    ],
     "automerge": true,
-    "assignees": ["@RicardoGEsteves"],
+    "assignees": [
+      "@RicardoGEsteves"
+    ],
     "prCreation": "immediate"
   },
   "digest": {
@@ -27,15 +31,24 @@
     "Change": "[{{#if displayFrom}}`{{{displayFrom}}}` -> {{else}}{{#if currentValue}}`{{{currentValue}}}` -> {{/if}}{{/if}}{{#if displayTo}}`{{{displayTo}}}`{{else}}`{{{newValue}}}`{{/if}}]({{#if depName}}https://renovatebot.com/diffs/npm/{{replace '/' '%2f' depName}}/{{{currentVersion}}}/{{{newVersion}}}{{/if}})"
   },
   "prHeader": "RicardoGEsteves {{{groupSlug}}} update, dependency {{depName}} to v{{newVersion}}",
-  "assignees": ["RicardoGEsteves"],
-  "labels": ["dependencies", "major", "minor", "patch", "{{depName}}"],
-  "schedule": ["every weekend"],
+  "assignees": [
+    "RicardoGEsteves"
+  ],
+  "labels": [
+    "dependencies",
+    "major",
+    "minor",
+    "patch",
+    "{{depName}}"
+  ],
+  "schedule": [
+    "every weekend"
+  ],
   "prCreation": "not-pending",
   "configMigration": true,
-  "platformCommit": true,
+  "platformCommit": "enabled",
   "packageRules": [
     {
-      "matchSourceUrlPrefixes": ["https://github.com/"],
       "prBodyDefinitions": {
         "OpenSSF": "[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/{{sourceRepo}}/badge)](https://securityscorecards.dev/viewer/?uri=github.com/{{sourceRepo}})",
         "Sourcegraph": "[![code search for \"{{{depName}}}\"](https://sourcegraph.com/search/badge?q=repo:%5Egithub%5C.com/{{{repository}}}%24+case:yes+-file:package%28-lock%29%3F%5C.json+{{{depName}}}&label=matches)](https://sourcegraph.com/search?q=repo:%5Egithub%5C.com/{{{repository}}}%24+case:yes+-file:package%28-lock%29%3F%5C.json+{{{depName}}})"
@@ -50,27 +63,43 @@
         "New value",
         "Package file",
         "References"
+      ],
+      "matchSourceUrls": [
+        "https://github.com/{/,}**"
       ]
     },
     {
-      "matchPackageNames": ["node"],
+      "matchPackageNames": [
+        "node"
+      ],
       "enabled": false
     },
     {
-      "matchPackageNames": ["npm"],
+      "matchPackageNames": [
+        "npm"
+      ],
       "enabled": false
     },
     {
-      "matchPackageNames": ["pnpm"],
+      "matchPackageNames": [
+        "pnpm"
+      ],
       "enabled": false
     },
     {
-      "matchDepTypes": ["peerDependencies"],
+      "matchDepTypes": [
+        "peerDependencies"
+      ],
       "enabled": false
     },
     {
       "description": "Automatically merge minor and patch-level updates",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "autoApprove": true,
       "automerge": true,
       "automergeType": "pr",
@@ -79,17 +108,26 @@
       "assignAutomerge": true,
       "groupName": "all non-major dependencies",
       "groupSlug": "all-non-major",
-      "matchPackagePatterns": ["*"],
-      "addLabels": ["{{{matchUpdateTypes}}}", "{{{groupSlug}}}"]
+      "addLabels": [
+        "{{{matchUpdateTypes}}}",
+        "{{{groupSlug}}}"
+      ],
+      "matchPackageNames": [
+        "*"
+      ]
     },
     {
       "description": "Dependencies major updates",
-      "matchUpdateTypes": ["major"],
-      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": [
+        "major"
+      ],
       "dependencyDashboardApproval": true,
       "addLabels": [
         "{{{matchUpdateTypes}}}",
         "{{{depName}}}-update-{{{newVersion}}}"
+      ],
+      "matchPackageNames": [
+        "*"
       ]
     }
   ],
