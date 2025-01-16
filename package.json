@@ -45,7 +45,7 @@
     "@types/react-dom": "19.0.3",
     "@types/uuid": "10.0.0",
     "autoprefixer": "10.4.20",
-    "eslint": "8.57.1",
+    "eslint": "9.18.0",
     "eslint-config-next": "15.1.4",
     "postcss": "8.5.1",
     "prisma": "6.2.1",
