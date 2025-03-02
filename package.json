@@ -21,7 +21,7 @@
     "@radix-ui/react-select": "^2.1.4",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
-    "bcryptjs": "^2.4.3",
+    "bcryptjs": "^3.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "next": "15.2.0",
