@@ -40,16 +40,16 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.6",
-    "@types/node": "22.13.5",
-    "@types/react": "19.0.10",
-    "@types/react-dom": "19.0.4",
+    "@types/node": "22.20.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "@types/uuid": "10.0.0",
-    "autoprefixer": "10.4.20",
+    "autoprefixer": "10.5.5",
     "eslint": "8.57.1",
-    "eslint-config-next": "15.2.0",
+    "eslint-config-next": "15.5.25",
     "postcss": "8.5.3",
-    "prisma": "6.4.1",
-    "tailwindcss": "3.4.17",
-    "typescript": "5.7.3"
+    "prisma": "6.19.3",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.9.3"
   }
 }
